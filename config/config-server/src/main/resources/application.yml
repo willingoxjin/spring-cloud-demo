@@ -1,0 +1,19 @@
+server:
+  port: 30000
+
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          # git 地址
+          uri: https://github.com/willingoxjin/springcloud-config-repo.git
+          # 是否强制拉取资源文件
+          fore-pull: true
+          # 将配置文件放入接入方对应的文件夹下
+          search-paths: '${application}'
+        # 属性重载：覆盖配置中心拉取的属性
+        overrides:
+          test: myTest

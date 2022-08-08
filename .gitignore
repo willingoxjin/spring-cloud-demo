@@ -1,0 +1,41 @@
+# maven ignore
+target/
+*.jar
+!.mvn/wrapper/*
+*.war
+*.zip
+*.tar
+*.tar.gz
+.flattened-pom.xml
+
+# eclipse ignore
+.settings/
+.project
+.classpath
+
+# idea ignore
+.idea/
+*.ipr
+*.iml
+*.iws
+
+# temp ignore
+*.log*
+*.cache
+*.diff
+*.patch
+*.tmp
+
+# system ignore
+.DS_Store
+Thumbs.db
+
+
+
+/.idea/
+/spring-cloud-demo.iml
+/**/target/
+/dubbo/dubbo-admin/dubbo-admin-ui/yarn.lock
+/dubbo/dubbo-admin/dubbo-admin-ui/pnpm-lock.yaml
+
+/dubbo/dubbo-admin/dubbo-admin-ui/node_modules/

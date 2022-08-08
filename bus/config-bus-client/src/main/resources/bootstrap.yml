@@ -1,0 +1,45 @@
+spring:
+  application:
+    name: config-bus-client
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5673
+    username: admin
+    password: admin123
+  cloud:
+    config:
+      # 拉取的远端配置文件名，若与spring.name.application不一致时需要单独配置
+      name: config-consumer
+      profile: prod
+      label: master
+      # 单个注册中心：直接向配置中心获取配置
+      # uri: http://localhost:30000
+      # 注册中心高可用：使用 eureka 拉取config server，获取配置
+      discovery:
+        enabled: true
+        service-id: config-bus-server
+    stream:
+      # 默认的 binder，若引用多个 binder，需要配置一个默认的 binder
+      default-binder: rabbit
+server:
+  port: 31002
+
+myMotto: ${motto}
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:10001/eureka/
+
+# actuator
+management:
+  security:
+    enabled: false
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+

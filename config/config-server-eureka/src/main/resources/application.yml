@@ -1,0 +1,22 @@
+server:
+  port: 30001
+
+spring:
+  application:
+    name: config-server-eureka
+  cloud:
+    config:
+      server:
+        git:
+          # git 地址
+          uri: https://github.com/willingoxjin/springcloud-config-repo.git
+          # 是否强制拉取资源文件
+          fore-pull: true
+          search-paths: '${application}'
+        # 属性重载：覆盖配置中心拉取的属性
+        overrides:
+          test: myTest
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:10001/eureka/

@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: config-client
+  cloud:
+    config:
+      # 拉取的远端配置文件名，若与spring.name.application不一致时需要单独配置
+      name: config-consumer
+      profile: prod
+      label: master
+      # 单个注册中心：直接向配置中心获取配置
+      # uri: http://localhost:30000
+      # 注册中心高可用：使用 eureka 拉取config server，获取配置
+      discovery:
+        enabled: true
+        service-id: config-server-eureka
+
+
+server:
+  port: 31000
+
+myMotto: ${motto}
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:10001/eureka/
+
+# actuator
+management:
+  security:
+    enabled: false
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+

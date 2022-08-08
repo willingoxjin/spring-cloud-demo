@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:context="http://www.springframework.org/schema/context"
+  xmlns:mvc="http://www.springframework.org/schema/mvc"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+  <!-- 扫描controller -->
+  <context:component-scan base-package="org.willingoxjin.sentinel.demo" use-default-filters="false">
+    <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+  </context:component-scan>
+
+  <!-- mvc的注解 -->
+  <mvc:annotation-driven/>
+
+  <mvc:interceptors>
+    <mvc:interceptor>
+      <!--
+          mvc:mapping：拦截的路径
+          /**：是指所有文件夹及其子孙文件夹
+          /*：是指所有文件夹，但不包含子孙文件夹
+          /：Web项目的根目录
+      -->
+      <mvc:mapping path="/**"/>
+      <ref bean="sentinelWebInterceptor" />
+    </mvc:interceptor>
+  </mvc:interceptors>
+</beans>

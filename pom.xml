@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.willingoxjin</groupId>
+    <artifactId>spring-cloud-demo</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>eureka/eureka-server</module>
+        <module>eureka/eureka-client</module>
+        <module>eureka/eureka-consumer</module>
+        <module>ribbon/ribbon-consumer</module>
+        <module>consul/consul-consumer</module>
+        <module>consul/consul-provider</module>
+        <module>feign/feign-consumer</module>
+        <module>feign/feign-consumer-advance</module>
+        <module>feign/feign-client-api</module>
+        <module>feign/feign-client</module>
+        <module>hystrix/hystrix-fallback</module>
+        <module>hystrix/hystrix-turbine</module>
+        <module>hystrix/hystrix-dashboard</module>
+        <module>config/config-server</module>
+        <module>config/config-client</module>
+        <module>config/config-server-eureka</module>
+        <module>bus/config-bus-server</module>
+        <module>bus/config-bus-client</module>
+        <module>gateway/gateway-simple</module>
+        <module>gateway/auth-service-api</module>
+        <module>gateway/auth-service</module>
+        <module>nacos/nacos-provider</module>
+        <module>nacos/nacos-comsumer</module>
+        <module>nacos/nacos-config</module>
+        <module>sleuth/sleuth-trace-one</module>
+        <module>sleuth/sleuth-trace-two</module>
+        <module>sleuth/zipkin-server</module>
+        <module>stream/stream-simple</module>
+        <module>sentinel/hello-sentinel</module>
+        <module>sentinel/sentinel-web-demo</module>
+        <module>sentinel/spring-cloud-sentinel-demo</module>
+        <module>sentinel/sentinel-annotation-aspectj-demo</module>
+        <module>sentinel/spring-mvc-sentinel-demo</module>
+        <module>sentinel/sentinel-apollo-demo</module>
+        <module>dubbo/dubbo-service</module>
+        <module>dubbo/dubbo-api</module>
+        <module>dubbo/dubbo-consumer</module>
+    </modules>
+
+    <packaging>pom</packaging>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>Hoxton.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-parent</artifactId>
+                <version>2.3.1.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>2021.1</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!-- gson版本 > 2.1 -->
+            <!--<dependency>
+                <groupId>com.google.code.gson</groupId>
+                <artifactId>gson</artifactId>
+                <version>2.8.5</version>
+            </dependency>-->
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.20</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.0</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
